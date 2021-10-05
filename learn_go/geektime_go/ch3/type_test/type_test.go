@@ -1,0 +1,39 @@
+package type_test
+
+import (
+	"testing"
+)
+
+type MyInt int64
+
+//不支持任何隐式类型转换
+func TestImplicit(t *testing.T) {
+	var a int32 = 1
+	var b int64
+	b = int64(a)
+	var c MyInt
+	c = MyInt(b)
+	t.Log(a, b, c)
+	//maxInt64 := math.MaxInt64
+	//maxFloat64 := math.MaxFloat64
+	//maxUint32 := math.MaxUint32
+}
+
+func TestPoint(t *testing.T) {
+	a := 1
+	aPtr := &a
+	//不支持指针运算
+	//aPtr = aPtr + 1
+	t.Log(a, aPtr)
+	t.Logf("%T %T", a, aPtr)
+}
+
+func TestString(t *testing.T) {
+	var s string
+
+	t.Log("*" + s + "*")
+	t.Log(len(s))
+	//if s == "" {
+	//
+	//}
+}
