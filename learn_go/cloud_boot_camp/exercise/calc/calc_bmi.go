@@ -1,12 +1,14 @@
 package calc
 
-func CalcBMI(tall, weight float64) (bmi float64) {
+import "fmt"
+
+func CalcBMI(tall, weight float64) (bmi float64, err error) {
 
 	if tall <= 0 {
-		panic("身高不能是0或者负数")
+		err = fmt.Errorf("身高不能是0或者负数")
 	}
 	if weight <= 0 {
-		panic("体重不能是0或者负数")
+		err = fmt.Errorf("体重不能是0或者负数")
 	}
-	return weight / (tall * tall)
+	return weight / (tall * tall), nil
 }
